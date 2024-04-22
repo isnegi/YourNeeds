@@ -3,11 +3,12 @@ import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import COLORS from '../theme/colors';
 import Home from '../screens/Home';
-import { BellRing, CalendarDays, HomeIcon, PencilLine, UserRoundSearch } from 'lucide-react-native';
+import { BellRing, CalendarDays, CircleUserRound, HomeIcon, PencilLine, UserRoundSearch } from 'lucide-react-native';
 import Finder from '../screens/Finder';
 import Post from '../screens/Post';
 import Booking from '../screens/Booking';
 import Notification from '../screens/Notification';
+import AccountNavigator from './Account';
 
 // child or user navigator
 const Tab = createBottomTabNavigator();
@@ -88,7 +89,7 @@ const UserNavigator = () => {
                     },
                 }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
                 name="Notification"
                 component={Notification}
                 options={{
@@ -96,6 +97,23 @@ const UserNavigator = () => {
                     headerShown: false,
                     tabBarLabel: 'Notification',
                     tabBarIcon: ({ color, size }) => <BellRing color={color} size={size} />,
+                    headerStyle: {
+                        backgroundColor: COLORS.secondary,
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+            /> */}
+            <Tab.Screen
+                name="Account"
+                component={AccountNavigator}
+                options={{
+                    tabBarShowLabel: false,
+                    headerShown: false,
+                    tabBarLabel: 'Account',
+                    tabBarIcon: ({ color, size }) => <CircleUserRound color={color} size={size} />,
                     headerStyle: {
                         backgroundColor: COLORS.secondary,
                     },
